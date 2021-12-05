@@ -1,10 +1,24 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import GNB from './components/GNB';
+import Main from './components/Main';
+import Music from './components/Music';
+import WholeLyrics from './components/WholeLyrics';
+
 function App() {
   return (
-    <div className="App container col-lg-12">
-      <div className="row">
-        <div className="col-lg-6"></div>
+    <BrowserRouter>
+      <div className="App container">
+        <div className="row">
+          <GNB />
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/lyrics" element={<WholeLyrics />} />
+          </Routes>
+          <Music />
+        </div>
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
 
